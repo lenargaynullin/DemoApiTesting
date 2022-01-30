@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using NUnit.Framework;
 
 namespace DemoApiTesting
 {
-    public class PetStoreTests
+    public class GetPlanetsTests
     {
 
         private const string Host = "https://swapi.dev/api";
@@ -22,7 +23,7 @@ namespace DemoApiTesting
             var baseAddress = new Uri(Host + Api);
             var client = new HttpClient() { BaseAddress = baseAddress } ;
             var response = await client.GetAsync(baseAddress, new CancellationToken());
-            
+
             var stringResponse = await response.Content.ReadAsStringAsync();
             if (response.StatusCode != HttpStatusCode.OK)
             {
