@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\АЛСУ\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\АЛСУ\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Файлы\QA engineer\git\DemoApiTesting\DemoApiTesting" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="contracts" t="Include">
+        <e p="getPlanets.Positive.json" t="Include" />
+        <e p="GetPlanetsTests.cs" t="Include" />
+      </e>
+      <e p="ContractTests" t="Include">
+        <e p="ContractBase.cs" t="Include" />
+        <e p="contracts" t="Include">
+          <e p="getPlanets.Positive.json" t="Include" />
+        </e>
+        <e p="GetPlanetsContractTests.cs" t="Include" />
+      </e>
+      <e p="CustomAssert" t="Include">
+        <e p="GetPlanetsRestSharpTests.cs" t="Include" />
+        <e p="PutPetTests.cs" t="Include" />
+        <e p="TestBase.cs" t="Include" />
+      </e>
+      <e p="DemoApiTesting.csproj" t="IncludeRecursive" />
+      <e p="httpClient" t="Include">
+        <e p="GetPlanetsTests.cs" t="Include" />
+        <e p="PostPetTests.cs" t="Include" />
+      </e>
+      <e p="models" t="Include">
+        <e p="PetRequest.cs" t="Include" />
+        <e p="PostPet.cs" t="Include" />
+        <e p="ResponsePlanets.cs" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="net6.0" t="Include">
+            <e p="DemoApiTesting.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="restSharp" t="Include">
+        <e p="GetStoreInventoryTests.cs" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>

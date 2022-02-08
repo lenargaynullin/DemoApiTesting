@@ -22,6 +22,7 @@ namespace DemoApiTesting.restSharp
             var r = JObject.Parse(response.Content);
             //Проверяем, что статус ответа API == ОК 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode, "полученный code некорректен");
+            
         }
     }
 }
