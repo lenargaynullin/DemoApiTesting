@@ -22,6 +22,8 @@ namespace DemoApiTesting.ContractTests
         [TestCase(4)]
         [TestCase(5)]
         [TestCase(6)]
+		
+		// Позитивное тестирование
         public async Task CheckContractGetPlanetPositiveTesting(int page)
         {
             string Api = $"/planets/?page={page}";
@@ -31,6 +33,19 @@ namespace DemoApiTesting.ContractTests
             JSchema schema = JSchema.Parse(GetFileAsString("getPlanets.Positive.json"));
             await CheckValidationResponseMessageBySchemaAsync(response, schema);
         }
+		
+		// 1. Написать один негативный контрактный кейс на апи 
+		// Негативное тестирование
+		public async Task CheckContractGetPlanetNegativeTesting(int page)
+        {
+            string Api = $"/planets/?page={page}"; // Адрес Api
+            var client = new HttpClient() ; 
+            var response = await client.GetAsync(new Uri(Host + Api), new CancellationToken());
+            
+            JSchema schema = JSchema.Parse(GetFileAsString("getPlanets.Positive.json"));
+            await CheckValidationResponseMessageBySchemaAsync(response, schema);
+        }
+		
         
     }
 }

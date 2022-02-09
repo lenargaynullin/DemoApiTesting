@@ -35,6 +35,7 @@ namespace DemoApiTesting
             var response = await client.GetAsync(baseAddress, new CancellationToken());
 
             var stringResponse = await response.Content.ReadAsStringAsync();
+            
             // преобразуем содержимое ответа апи в строку
             if (response.StatusCode != HttpStatusCode.OK)
             {
