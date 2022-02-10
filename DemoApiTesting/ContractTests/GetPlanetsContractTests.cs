@@ -16,36 +16,48 @@ namespace DemoApiTesting.ContractTests
         private const string Host = "https://swapi.dev/api";
 
         [Test]
-        [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(3)]
-        [TestCase(4)]
-        [TestCase(5)]
-        [TestCase(6)]
-		
-		// Позитивное тестирование
+        [TestCase(0)]
+        
+		// Негативное тестирование https://swapi.dev/api/planets/?page=0
         public async Task CheckContractGetPlanetPositiveTesting(int page)
         {
+	        
             string Api = $"/planets/?page={page}";
+            
+            // Создаем HTTP клиент для отправления запроса, получения ответа
             var client = new HttpClient() ;
-            var response = await client.GetAsync(new Uri(Host + Api), new CancellationToken());
             
-            JSchema schema = JSchema.Parse(GetFileAsString("getPlanets.Positive.json"));
+            // Переменная response = Отправляем запрос по адресу URI (https://swapi.dev/api/planets/?page={page}
+            var response = await client.GetAsync(new Uri(Host + Api), new CancellationToken());
+              
+            
+            // Присваиваем переменной Json-схема schema = Загрузить Json-схему из строки которая содержит Схему Json
+            // представление схемы json в памяти
+            JSchema schema = JSchema.Parse(GetFileAsString("getPlanets.Negative.json"));
+            
+            // Сравнить ответ с файлом Json схема
             await CheckValidationResponseMessageBySchemaAsync(response, schema);
         }
 		
-		// 1. Написать один негативный контрактный кейс на апи 
-		// Негативное тестирование
-		public async Task CheckContractGetPlanetNegativeTesting(int page)
-        {
-            string Api = $"/planets/?page={page}"; // Адрес Api
-            var client = new HttpClient() ; 
-            var response = await client.GetAsync(new Uri(Host + Api), new CancellationToken());
-            
-            JSchema schema = JSchema.Parse(GetFileAsString("getPlanets.Positive.json"));
-            await CheckValidationResponseMessageBySchemaAsync(response, schema);
-        }
-		
+        /*
+		public abstract class ContractBase
+		{
+			protected string GetFileAsString(string fileName)
+			{
+				var direct = Directory.GetCurrentDirectory();
+				var path = direct.Substring(0, direct.IndexOf(@"\bin\", StringComparison.Ordinal));
+				var fullPath = path + @"\ContractTests\contracts\";
+				return File.ReadAllText(fullPath + fileName);
+			}
+
+			protected async Task CheckValidationResponseMessageBySchemaAsync(HttpResponseMessage response, JSchema schema)
+			{
+				JObject jObject = JObject.Parse(await response.Content.ReadAsStringAsync());
+				bool result = jObject.IsValid(schema, out IList<string> msg);
+				Assert.IsTrue(result, "некорректные поля: " + string.Join(" ,", msg.ToArray()));
+			}
+		}
+		*/
         
     }
 }

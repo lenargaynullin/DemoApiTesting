@@ -22,11 +22,8 @@ namespace DemoApiTesting
         
 
         [Test]
-        [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(3)]
-        [TestCase(4)]
-        [TestCase(5)]
+        [TestCase(0)]
+        
         public async Task CheckContractPlanetsApiTesting(int page)
         {
             string Api = $"/planets/?page={page}";

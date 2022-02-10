@@ -21,7 +21,7 @@
       <e p="ContractTests" t="Include">
         <e p="ContractBase.cs" t="Include" />
         <e p="contracts" t="Include">
-          <e p="getPlanets.Positive.json" t="Include" />
+          <e p="getPlanets.Negative.json" t="Include" />
         </e>
         <e p="GetPlanetsContractTests.cs" t="Include" />
       </e>

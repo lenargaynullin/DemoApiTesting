@@ -25,9 +25,8 @@
     <list default="true" id="43cc5f88-afda-4528-ae61-c8d582f6d0be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DemoApiTesting.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DemoApiTesting.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DemoApiTesting.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DemoApiTesting.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DemoApiTesting.dir/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DemoApiTesting.dir/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ContractTests/GetPlanetsContractTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ContractTests/GetPlanetsContractTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApiTesting.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApiTesting.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContractTests/contracts/getPlanets.Positive.json" beforeDir="false" afterPath="$PROJECT_DIR$/ContractTests/contracts/getPlanets.Negative.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contracts/GetPlanetsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/GetPlanetsTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,13 +37,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7A07ED9A-7859-409F-AF6D-7D503D7F4B2F/60/JSchema.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/restSharp/GetStoreInventoryTests.cs" />
+        <option value="$PROJECT_DIR$/CustomAssert/GetPlanetsRestSharpTests.cs" />
         <option value="$PROJECT_DIR$/ContractTests/GetPlanetsContractTests.cs" />
         <option value="$PROJECT_DIR$/contracts/GetPlanetsTests.cs" />
-        <option value="$PROJECT_DIR$/CustomAssert/GetPlanetsRestSharpTests.cs" />
+        <option value="$PROJECT_DIR$/ContractTests/contracts/getPlanets.Negative.json" />
       </list>
     </option>
   </component>
@@ -88,7 +95,8 @@
       <option name="presentableId" value="Default" />
       <updated>1644347700381</updated>
       <workItem from="1644347847125" duration="305000" />
-      <workItem from="1644418337583" duration="7376000" />
+      <workItem from="1644418337583" duration="7752000" />
+      <workItem from="1644514210649" duration="6184000" />
     </task>
     <task id="LOCAL-00001" summary="08.02.2022">
       <created>1644348074742</created>
@@ -97,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644348074742</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="09.02.22">
+      <created>1644431825205</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1644431825205</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,17 +135,110 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="08.02.2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="08.02.2022" />
+    <MESSAGE value="09.02.22" />
+    <option name="LAST_COMMIT_MESSAGE" value="09.02.22" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1644348125163">
+    <state x="75" y="136" width="974" height="592" key="#xdebugger.evaluate" timestamp="1644520394332">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1644348125163" />
-    <state x="627" y="0" width="644" height="728" key="find.popup" timestamp="1644430188509">
+    <state x="75" y="136" width="974" height="592" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1644520394332" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1644520872158">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="627" y="0" width="644" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1644430188509" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1644520872158" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1644520872157">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1644520872157" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1644520872157">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1644520872157" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1644520872158">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1644520872158" />
+    <state width="1323" height="242" key="GridCell.Tab.1.bottom" timestamp="1644520714146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1644520714146" />
+    <state width="1323" height="242" key="GridCell.Tab.1.center" timestamp="1644520714143">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1644520714143" />
+    <state width="1323" height="242" key="GridCell.Tab.1.left" timestamp="1644520714142">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1644520714142" />
+    <state width="1323" height="242" key="GridCell.Tab.1.right" timestamp="1644520714145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1644520714145" />
+    <state width="1323" height="242" key="GridCell.Tab.2.bottom" timestamp="1644520714151">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1644520714151" />
+    <state width="1323" height="242" key="GridCell.Tab.2.center" timestamp="1644520714149">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1644520714149" />
+    <state width="1323" height="242" key="GridCell.Tab.2.left" timestamp="1644520714147">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1644520714147" />
+    <state width="1323" height="242" key="GridCell.Tab.2.right" timestamp="1644520714150">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1644520714150" />
+    <state width="1323" height="242" key="GridCell.Tab.3.bottom" timestamp="1644520714156">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.3.bottom/0.0.1366.728@0.0.1366.728" timestamp="1644520714156" />
+    <state width="1323" height="242" key="GridCell.Tab.3.center" timestamp="1644520714153">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.3.center/0.0.1366.728@0.0.1366.728" timestamp="1644520714153" />
+    <state width="1323" height="242" key="GridCell.Tab.3.left" timestamp="1644520714152">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.3.left/0.0.1366.728@0.0.1366.728" timestamp="1644520714152" />
+    <state width="1323" height="242" key="GridCell.Tab.3.right" timestamp="1644520714155">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1644520714155" />
+    <state width="1323" height="242" key="GridCell.Tab.4.bottom" timestamp="1644520714161">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.4.bottom/0.0.1366.728@0.0.1366.728" timestamp="1644520714161" />
+    <state width="1323" height="242" key="GridCell.Tab.4.center" timestamp="1644520714159">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.4.center/0.0.1366.728@0.0.1366.728" timestamp="1644520714159" />
+    <state width="1323" height="242" key="GridCell.Tab.4.left" timestamp="1644520714157">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.4.left/0.0.1366.728@0.0.1366.728" timestamp="1644520714157" />
+    <state width="1323" height="242" key="GridCell.Tab.4.right" timestamp="1644520714160">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="242" key="GridCell.Tab.4.right/0.0.1366.728@0.0.1366.728" timestamp="1644520714160" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1644431841955">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1644431841955" />
+    <state width="691" height="364" key="XDebugger.FullValuePopup" timestamp="1644520336635">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="691" height="364" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1644520336635" />
+    <state x="236" y="94" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1644515794286">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="236" y="94" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728@0.0.1366.728" timestamp="1644515794286" />
+    <state x="627" y="0" width="644" height="728" key="find.popup" timestamp="1644515197943">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="627" y="0" width="644" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1644515197943" />
     <state x="461" y="265" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1644348114960">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
