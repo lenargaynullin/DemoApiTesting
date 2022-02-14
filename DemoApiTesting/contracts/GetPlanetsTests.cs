@@ -22,7 +22,7 @@ namespace DemoApiTesting
         
 
         [Test]
-        [TestCase(9999)]
+        [TestCase(1)]
         
        
         public async Task CheckContractPlanetsApiTesting(int page)
@@ -40,7 +40,7 @@ namespace DemoApiTesting
             // преобразуем содержимое ответа апи в строку
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                Assert.Fail($"{Api} отработала некорректно, дальнейшие проверки бессмысленны!");
+               Assert.Fail($"{Api} отработала некорректно, дальнейшие проверки бессмысленны!");
             }
             
             //Находим путь к файлу

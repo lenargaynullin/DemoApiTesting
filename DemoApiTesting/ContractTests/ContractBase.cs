@@ -18,6 +18,7 @@ namespace DemoApiTesting.ContractTests
             var path = direct.Substring(0, direct.IndexOf(@"\bin\", StringComparison.Ordinal));
             var fullPath = path + @"\ContractTests\contracts\";
             return File.ReadAllText(fullPath + fileName);
+            
         }
 
         protected async Task CheckValidationResponseMessageBySchemaAsync(HttpResponseMessage response, JSchema schema)
