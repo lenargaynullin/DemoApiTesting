@@ -16,7 +16,7 @@ namespace DemoApiTesting.ContractTests
         private const string Host = "https://swapi.dev/api";
 
         [Test]
-        [TestCase(1)]
+        [TestCase(0)]
       
 
         // Негативное тестирование https://swapi.dev/api/planets/?page=0
@@ -27,12 +27,23 @@ namespace DemoApiTesting.ContractTests
             // Создаем HTTP клиент для отправления запроса, получения ответа
             var client = new HttpClient() ;
             
-            // Переменная response = Отправляем запрос по адресу URI (https://swapi.dev/api/planets/?page={page}
+            // Ответ от сервера
             var response = await client.GetAsync(new Uri(Host + Api), new CancellationToken());
 
             
+
+            // Строковый ответ от сервера 
+            var stringResponse = await response.Content.ReadAsStringAsync();
+
             // Присваиваем переменной Json-схема schema = Загрузить Json-схему из строки которая содержит Схему Json
-            JSchema schema = JSchema.Parse(GetFileAsString("getPlanets.Negative.json"));
+            JSchema schema = JSchema.Parse(GetFileAsString("getPlanets.Positive.json"));
+
+            // Преобразуем наш файл getUsers.Negative.json в формат JSchema (для этого мы сначала считаем файл в строку)
+            // Документацию по JSON Schema Validation можно посмотреть тут:
+            // https://json-schema.org/draft/2019-09/json-schema-validation.html
+            JSchema schema = JSchema.Parse(File.ReadAllText($@"{path}" + "getPlanets.Negative.json"));
+
+            
 
             //{
             //    var direct = Directory.GetCurrentDirectory();
@@ -45,7 +56,7 @@ namespace DemoApiTesting.ContractTests
 
             // Сравнить ответ с файлом Json схема
             await CheckValidationResponseMessageBySchemaAsync(response, schema);
-
+            var a = 3;
             // {
             //    JObject jObject = JObject.Parse(await response.Content.ReadAsStringAsync());
             //    bool result = jObject.IsValid(schema, out IList<string> msg);
