@@ -8,13 +8,13 @@ using NUnit.Framework;
 
 namespace DemoApiTesting.httpClient
 {
-    public class PostPetTests
+    public class PostUserTests
     {
         private const string Host = "https://petstore.swagger.io/v2";
         private const string Api = "/pet";
 
         [Test]
-        public async Task CheckPostPetTesting()
+        public async Task CheckPostUserTesting()
         {
             var baseAddress = Host + Api;
             var client = new HttpClient();

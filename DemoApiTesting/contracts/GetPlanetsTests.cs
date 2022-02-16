@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using NUnit.Framework;
+using NJsonSchema;
 
 namespace DemoApiTesting
 {
@@ -17,14 +18,14 @@ namespace DemoApiTesting
     {
 
         private const string Host = "https://swapi.dev/api";
-        
+
         private ResponsePlanets responsePlanets;
-        
+        private static IEnumerable<object> jObject;
 
         [Test]
-        [TestCase(1)]
-        
-       
+        [TestCase(0)]
+
+
         public async Task CheckContractPlanetsApiTesting(int page)
         {
             string Api = $"/planets/?page={page}";
@@ -36,33 +37,51 @@ namespace DemoApiTesting
 
             // Строковый ответ от сервера 
             var stringResponse = await response.Content.ReadAsStringAsync();
-            
+
             // преобразуем содержимое ответа апи в строку
             if (response.StatusCode != HttpStatusCode.OK)
             {
-               Assert.Fail($"{Api} отработала некорректно, дальнейшие проверки бессмысленны!");
+                Assert.Fail($"{Api} отработала некорректно, дальнейшие проверки бессмысленны!");
             }
-            
+
             //Находим путь к файлу
             var direct = Directory.GetCurrentDirectory();
-            
+
             // Убираем из этого пути лишнее (все,что после bin) и заменяем его на relativePath
             var path = direct.Substring(0, direct.IndexOf(@"\bin\", StringComparison.Ordinal)) + @"\contracts\";
-                        
+
             // Преобразуем наш файл getUsers.Negative.json в формат JSchema (для этого мы сначала считаем файл в строку)
             // Документацию по JSON Schema Validation можно посмотреть тут:
             // https://json-schema.org/draft/2019-09/json-schema-validation.html
-            JSchema schema = JSchema.Parse(File.ReadAllText($@"{path}"+"getPlanets.Negative.json"));
+            JSchema schema = JSchema.Parse(File.ReadAllText($@"{path}" + "getPlanets.Negative.json"));
+
+
 
             // преобразуем стринговый ответ от апи в JObject
             var jObject = JObject.Parse(stringResponse);
             if (jObject == null) throw new ArgumentNullException(nameof(jObject));
-             
+
+            // Вывод в консоль
+            Console.WriteLine("Файл getPlanets.Negative.json:");
+            Console.WriteLine(schema);
+
+            Console.WriteLine();
+            Console.WriteLine("Ответ сервера:");
+            Console.WriteLine(jObject);
+
+            IList<string> messages;
+
             // метод IsValid проверяет соответствует ли ответ апи (jObject) нашему контрактному файлу getUsers.Negative.json (schema)
-            var valid = jObject.IsValid(schema, out IList<string> messages);
+            bool valid = jObject.IsValid(schema, out messages);
+
+            Console.WriteLine(valid);
+
             
+
+            
+
             Assert.IsTrue(valid, $"Полученный json невалиден. Невалидные поля {string.Join(", ", messages.ToArray())}");
         }
-        
     }
+        
 }
