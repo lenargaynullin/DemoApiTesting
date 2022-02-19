@@ -46,7 +46,7 @@ namespace DemoApiTesting.httpClient
             var response = await client.PostAsJsonAsync(baseAddress, request);
 
             var statusCode = response.StatusCode;
-            Assert.AreEqual(HttpStatusCode.OK, statusCode, $"Ответ от api {Api} не соответствует ожидаемому");
+            Assert.AreEqual(HttpStatusCode.Created, statusCode, $"Ответ от api {Api} не соответствует ожидаемому");
         }
     }
 }

@@ -16,16 +16,15 @@ namespace DemoApiTesting.httpClient
         private const string Host = "https://reqres.in/api";
         private const string Api = "/users";
         private ResponseGetUsers responseUsers;
-
+              
         [OneTimeSetUp]
         public async Task Setup()
         {
             var baseAddress = new Uri(Host + Api);
             var client = new HttpClient() {BaseAddress = baseAddress };
             var response = await client.GetAsync(baseAddress, new CancellationToken());
-
             var stringResponse = await response.Content.ReadAsStringAsync();
-            
+
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 Assert.Fail(message: $"{Api} отработала некорректно, дальнейшие проверки бессмыслены!");
