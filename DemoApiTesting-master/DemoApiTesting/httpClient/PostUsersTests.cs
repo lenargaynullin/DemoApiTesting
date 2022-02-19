@@ -1,9 +1,12 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DemoApiTesting.models;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace DemoApiTesting.httpClient
@@ -12,7 +15,7 @@ namespace DemoApiTesting.httpClient
     {
         private const string Host = "https://reqres.in/api";
         private const string Api = "/users";
-
+        private ResponsePostUsers responsePostUsers;
         /*
         [Test]
         public async Task CheckPostUsersTesting()
@@ -28,12 +31,13 @@ namespace DemoApiTesting.httpClient
             Assert.AreEqual(HttpStatusCode.OK, statusCode, $"Ответ от api {Api} не соответствует ожидаемому");
         }
         */
-
+              
         [Test]
         public async Task CheckPostUserByJsonTesting()
         {
             var baseAddress = Host + Api;
             var client = new HttpClient();
+                      
             var request = new PostUser()
             {
                 Id = 0,
@@ -43,10 +47,29 @@ namespace DemoApiTesting.httpClient
                 Avatar = "https://vk.com/img/faces/111-image.jpg"
             };
 
-            var response = await client.PostAsJsonAsync(baseAddress, request);
+            var response = await client.GetAsync(baseAddress, new CancellationToken());
+            var stringResponse = await response.Content.ReadAsStringAsync();
+            responsePostUsers = JsonConvert.DeserializeObject<ResponsePostUsers>(stringResponse);
+            
 
             var statusCode = response.StatusCode;
-            Assert.AreEqual(HttpStatusCode.Created, statusCode, $"Ответ от api {Api} не соответствует ожидаемому");
+                       
+            if (
+                response.StatusCode == HttpStatusCode.Created &&
+                responsePostUsers.Email == "lenar@mail.ru" &&
+                responsePostUsers.FirstName == "Mortherus" &&
+                responsePostUsers.LastName == "Gaynullin"&&
+                responsePostUsers.Avatar == "https://vk.com/img/faces/111-image.jpg"
+                )
+            {
+                Assert.Pass("Статус 201 Created. {Api} отработала корректно, ответ соответсвует запросу");
+            }
+            else
+            {
+                Assert.Fail(message: $"{Api} отработала некорректно");
+            }
+            
+                       
         }
     }
 }
