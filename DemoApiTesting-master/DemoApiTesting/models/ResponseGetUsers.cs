@@ -4,6 +4,9 @@ namespace DemoApiTesting
 {
     public class ResponseGetUsers
     {
+        [JsonProperty("page")]
+        public int Page { get; set; }
+
         [JsonProperty("per_page")]
         public int PerPage { get; set; }
 
@@ -14,12 +17,12 @@ namespace DemoApiTesting
         public int TotalPages { get; set; }
 
         [JsonProperty("data")]
-        public Datum[] Data { get; set; }
+        public User[] Data { get; set; }
 
         [JsonProperty("support")]
         public Support Support { get; set; }
     }
-    public class Datum
+    public class User
     {
         [JsonProperty("id")]
         public int Id { get; set; }

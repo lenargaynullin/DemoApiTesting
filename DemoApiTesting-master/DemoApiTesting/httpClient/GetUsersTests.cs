@@ -32,5 +32,29 @@ namespace DemoApiTesting.httpClient
             }
             responseUsers = JsonConvert.DeserializeObject<ResponseGetUsers>(stringResponse);
         }
+
+        [Test]
+        public void CheckPageFromUsersApiTesting()
+        {
+            Assert.AreEqual(1, responseUsers.Page, "Страница не совпадает");
+        }
+
+        [Test]
+        public void CheckResponseIsNotEmptyFromUsersApiTesting()
+        {
+            Assert.IsNotNull(responseUsers, "Ответ от Api вернул пустое значение");
+        }
+
+        [Test]
+        public void CheckDataIsNotEmptyFromUsersApiTesting()
+        {
+            Assert.IsNotNull(responseUsers.Data, "Поле data в ответе от Api вернуло пустое значение");
+        }
+
+        [Test]
+        public void CheckIdFromUsersApiTesting()
+        {
+            Assert.AreEqual(4, responseUsers.Data[3].Id, "Поле id в ответе от Api не соответствует ожидаемому");
+        }
     }
 }

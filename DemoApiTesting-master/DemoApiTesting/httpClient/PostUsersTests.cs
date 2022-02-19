@@ -13,8 +13,9 @@ namespace DemoApiTesting.httpClient
         private const string Host = "https://reqres.in/api";
         private const string Api = "/users";
 
+        /*
         [Test]
-        public async Task CheckPostPetTesting()
+        public async Task CheckPostUsersTesting()
         {
             var baseAddress = Host + Api;
             var client = new HttpClient();
@@ -26,23 +27,20 @@ namespace DemoApiTesting.httpClient
             var statusCode = response.StatusCode;
             Assert.AreEqual(HttpStatusCode.OK, statusCode, $"Ответ от api {Api} не соответствует ожидаемому");
         }
-        
+        */
+
         [Test]
-        public async Task CheckPostPetByJsonTesting()
+        public async Task CheckPostUserByJsonTesting()
         {
             var baseAddress = Host + Api;
             var client = new HttpClient();
-            var request = new PetRequest()
+            var request = new PostUser()
             {
                 Id = 0,
-                Category = new IdName() { Id = 0, Name = "ololo" },
-                Name = "olololo",
-                PhotoUrls = new string[] {"string", "343434"},
-                Tags = new IdName[]
-                {
-                    new IdName() { Id = 1, Name = "name" },
-                    new IdName() { Id = 2, Name = "name2" }
-                }
+                Email = "lenar@mail.ru",
+                First_name = "Lenar",
+                Last_name = "Gaynullin",
+                Avatar = "https://vk.com/img/faces/111-image.jpg"
             };
 
             var response = await client.PostAsJsonAsync(baseAddress, request);
