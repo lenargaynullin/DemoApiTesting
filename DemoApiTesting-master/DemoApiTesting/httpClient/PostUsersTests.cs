@@ -38,7 +38,7 @@ namespace DemoApiTesting.httpClient
             {
                 Id = 0,
                 Email = "lenar@mail.ru",
-                First_name = "Lenar",
+                First_name = "Mortherus",
                 Last_name = "Gaynullin",
                 Avatar = "https://vk.com/img/faces/111-image.jpg"
             };
