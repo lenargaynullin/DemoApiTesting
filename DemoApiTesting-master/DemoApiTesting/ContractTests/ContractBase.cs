@@ -25,14 +25,6 @@ namespace DemoApiTesting.ContractTests
             JObject jObject = JObject.Parse(await response.Content.ReadAsStringAsync());
             bool result = jObject.IsValid(schema, out IList<string> msg);
             Assert.IsTrue(result, "некорректные поля: " + string.Join(" ,", msg.ToArray()));
-        }
-
-
-        protected async Task CheckResponseIsNotEmptyBySchemaAsync(HttpResponseMessage response, JSchema schema)
-        {
-            JObject jObject = JObject.Parse(await response.Content.ReadAsStringAsync());
-            bool result = jObject.IsValid(schema, out IList<string> msg);
-            Assert.IsTrue(result, "Ответ от Api вернул пустое значение");
-        }
+        }      
     }
 }

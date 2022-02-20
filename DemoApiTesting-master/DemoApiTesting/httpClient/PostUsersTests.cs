@@ -38,27 +38,32 @@ namespace DemoApiTesting.httpClient
             var baseAddress = Host + Api;
             var client = new HttpClient();
                       
-            var request = new PostUser()
+            var request = new UserRequest()
             {
-                Id = 0,
-                Email = "lenar@mail.ru",
-                First_name = "Mortherus",
-                Last_name = "Gaynullin",
-                Avatar = "https://vk.com/img/faces/111-image.jpg"
+                id = 0,
+                email = "lenar@mail.ru",
+                first_name = "Mortherus",
+                last_name = "Gaynullin",
+                avatar = "https://vk.com/img/faces/111-image.jpg"
             };
 
-            var response = await client.GetAsync(baseAddress, new CancellationToken());
+            var response = await client.PostAsJsonAsync(baseAddress, request);
             var stringResponse = await response.Content.ReadAsStringAsync();
             responsePostUsers = JsonConvert.DeserializeObject<ResponsePostUsers>(stringResponse);
-            
 
-            var statusCode = response.StatusCode;
-                       
+            Console.WriteLine("Ответ сервера:");
+            Console.WriteLine("StatusCode = " + response.StatusCode);
+            Console.WriteLine("Email = " + responsePostUsers.Email);
+            Console.WriteLine("FirstName = " + responsePostUsers.FirstName);
+            Console.WriteLine("LastName = " + responsePostUsers.LastName);
+            Console.WriteLine("Avatar = " + responsePostUsers.Avatar);
+   
+            // Проверка ответа
             if (
                 response.StatusCode == HttpStatusCode.Created &&
                 responsePostUsers.Email == "lenar@mail.ru" &&
                 responsePostUsers.FirstName == "Mortherus" &&
-                responsePostUsers.LastName == "Gaynullin"&&
+                responsePostUsers.LastName == "Gaynullin" &&
                 responsePostUsers.Avatar == "https://vk.com/img/faces/111-image.jpg"
                 )
             {
@@ -67,9 +72,8 @@ namespace DemoApiTesting.httpClient
             else
             {
                 Assert.Fail(message: $"{Api} отработала некорректно");
-            }
+            };
             
-                       
         }
     }
 }
