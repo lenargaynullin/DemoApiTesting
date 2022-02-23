@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using DemoApiTesting.models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 
 namespace DemoApiTesting.httpClient
@@ -48,32 +54,18 @@ namespace DemoApiTesting.httpClient
             };
 
             var response = await client.PostAsJsonAsync(baseAddress, request);
-            var stringResponse = await response.Content.ReadAsStringAsync();
-            responsePostUsers = JsonConvert.DeserializeObject<ResponsePostUsers>(stringResponse);
 
-            Console.WriteLine("Ответ сервера:");
-            Console.WriteLine("StatusCode = " + response.StatusCode);
-            Console.WriteLine("Email = " + responsePostUsers.Email);
-            Console.WriteLine("FirstName = " + responsePostUsers.FirstName);
-            Console.WriteLine("LastName = " + responsePostUsers.LastName);
-            Console.WriteLine("Avatar = " + responsePostUsers.Avatar);
-   
-            // Проверка ответа
-            if (
-                response.StatusCode == HttpStatusCode.Created &&
-                responsePostUsers.Email == "lenar@mail.ru" &&
-                responsePostUsers.FirstName == "Mortherus" &&
-                responsePostUsers.LastName == "Gaynullin" &&
-                responsePostUsers.Avatar == "https://vk.com/img/faces/111-image.jpg"
-                )
-            {
-                Assert.Pass("Статус 201 Created. {Api} отработала корректно, ответ соответсвует запросу");
-            }
-            else
-            {
-                Assert.Fail(message: $"{Api} отработала некорректно");
-            };
+
+            JObject jObject = JObject.Parse(await response.Content.ReadAsStringAsync());
+
+            var statusCode = response.StatusCode;
+
+            string stringSchema = @"{'id':""33"",'email':""int"",'first_name':""mortheus"",'last_name':""Gaynullin"",'avatar':""https://reqres.in/img/faces/1-image.jpg"",'createdAt':""2022-02-23T12:14:58.278Z""}";
+            JSchema schema = JSchema.Parse(stringSchema);
+
             
+            bool result = jObject.IsValid(schema, out IList<string> msg);
+            Assert.IsTrue(result, "некорректные поля: " + string.Join(" ,", msg.ToArray()));
         }
     }
 }

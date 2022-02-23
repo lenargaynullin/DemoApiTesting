@@ -37,12 +37,7 @@ namespace DemoApiTesting.ContractTests
         }
         
         [Test]
-        [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(3)]
-        [TestCase(4)]
-        [TestCase(5)]
-
+        
         public async Task CheckContractGetPlanetNegativeNotFoundTesting(int page)
         {
             string Api = $"/planets/?page={page}";
